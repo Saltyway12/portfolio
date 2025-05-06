@@ -1,0 +1,954 @@
+/* ======================================
+   PORTFOLIO DE RAPHAEL MARMOL
+   CSS PRINCIPAL ET ANIMATIONS
+   ====================================== */
+
+/* ---- VARIABLES GLOBALES ---- */
+:root {
+	/* Couleurs principales */
+	--background: rgb(24, 24, 24);
+	--second-background: rgb(21, 21, 21);
+	--primary-gradient-start: #f5a623;
+	--primary-gradient-end: #ff6f61;
+
+	/* Couleurs des cartes et éléments */
+	--card-bg: rgba(255, 255, 255, 0.05);
+	--card-border: rgba(255, 255, 255, 0.1);
+	--card-hover-shadow: rgba(0, 0, 0, 0.2);
+
+	/* Couleurs des accents par catégorie */
+	--frontend-accent: rgba(245, 166, 35, 0.6);
+	--backend-accent: rgba(255, 111, 97, 0.6);
+	--language-accent: rgba(97, 218, 251, 0.6);
+
+	/* Transitions et animations */
+	--transition-fast: 0.2s ease-in-out;
+	--transition-normal: 0.3s ease;
+	--transition-slow: 0.5s ease;
+}
+
+/* ---- RÉINITIALISATIONS ET STYLES DE BASE ---- */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+	list-style: none;
+	scroll-behavior: smooth;
+	font-family: "Oswald", sans-serif;
+}
+
+body {
+	min-height: 100vh;
+	background-color: var(--background);
+	color: white;
+	line-height: 1.6;
+}
+
+p {
+	font-size: 1.1em;
+}
+
+/* Style du dégradé pour les textes mis en valeur */
+span {
+	background: linear-gradient(
+		to right,
+		var(--primary-gradient-start),
+		var(--primary-gradient-end)
+	);
+	background-clip: text;
+	-webkit-background-clip: text;
+	color: transparent;
+}
+
+/* ---- BARRE DE NAVIGATION ---- */
+nav {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	padding: 2em 15%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: rgba(15, 15, 15, 0.8);
+	backdrop-filter: blur(10px);
+	z-index: 1000;
+}
+
+/* Logo */
+.logo {
+	font-size: 2em;
+	color: white;
+	font-weight: 800;
+	opacity: 0.8;
+	transition: var(--transition-fast);
+	position: relative;
+}
+
+.logo:hover {
+	opacity: 1;
+}
+
+/* Animation du logo au survol */
+.logo::before {
+	content: "";
+	position: absolute;
+	width: 0;
+	height: 2px;
+	bottom: -3px;
+	left: 0;
+	background: linear-gradient(
+		to right,
+		var(--primary-gradient-start),
+		var(--primary-gradient-end)
+	);
+	transition: width 0.3s ease;
+}
+
+.logo:hover::before {
+	width: 100%;
+}
+
+/* Menu de navigation */
+ul {
+	display: flex;
+	align-items: center;
+	gap: 3em;
+}
+
+nav ul li a {
+	color: white;
+	opacity: 0.7;
+	transition: var(--transition-fast);
+}
+
+nav ul li a:hover {
+	opacity: 1;
+}
+
+/* Style pour le lien actif dans la navigation */
+.active-link {
+	opacity: 1 !important;
+	font-weight: 500;
+	position: relative;
+}
+
+.active-link::after {
+	content: "";
+	position: absolute;
+	bottom: -5px;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background: linear-gradient(
+		to right,
+		var(--primary-gradient-start),
+		var(--primary-gradient-end)
+	);
+}
+
+/* Icône de menu mobile (masquée par défaut) */
+#menu {
+	color: white;
+	font-size: 3em;
+	display: none;
+}
+
+/* ---- BOUTONS ---- */
+.btn {
+	padding: 0.5em 1em;
+	color: white;
+	font-weight: 500;
+	letter-spacing: 1px;
+	border-radius: 0.5em;
+	font-size: 1.1em;
+	border: 2px solid white;
+	cursor: pointer;
+	transition: var(--transition-normal);
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+	z-index: 1;
+}
+
+.btn:hover {
+	background-color: white;
+	color: var(--background);
+}
+
+/* Animation des boutons au survol */
+.btn::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(
+		90deg,
+		transparent,
+		rgba(255, 255, 255, 0.1),
+		transparent
+	);
+	transition: left 0.7s ease;
+	z-index: -1;
+}
+
+.btn:hover::before {
+	left: 100%;
+}
+
+/* ---- SECTION COMMUNE ---- */
+section {
+	min-height: 100vh;
+	padding: 5% 15%;
+	/* Animation d'apparition des sections */
+	opacity: 0;
+	transform: translateY(30px);
+	transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+section.visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+/* ---- SECTION ACCUEIL ---- */
+#acceuil {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 2em;
+	color: white;
+	padding-top: 8em;
+}
+
+/* Photo de profil */
+#acceuil img {
+	width: 18vw;
+	max-width: 200px;
+	border-radius: 50%;
+	object-fit: cover;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+	border: 3px solid rgba(255, 255, 255, 0.1);
+	transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+}
+
+#acceuil img:hover {
+	transform: scale(1.05);
+	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+	filter: brightness(1.1);
+}
+
+/* Boîte d'informations */
+.info-box {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	gap: 0.5em;
+	max-width: 600px;
+}
+
+.info-box h1 {
+	font-size: 5em;
+	font-weight: 500;
+}
+
+.info-box h3 {
+	font-size: 2em;
+	font-weight: 400;
+}
+
+.info-box p {
+	opacity: 0.7;
+}
+
+/* Conteneur de boutons */
+.btn-box {
+	display: flex;
+	gap: 1em;
+}
+
+.btn-box .btn {
+	position: relative;
+	text-align: center;
+}
+
+.btn-box .btn a {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	color: inherit;
+}
+
+.btn-box .btn a:visited {
+	color: inherit;
+}
+
+.btn-box .btn:nth-of-type(2) {
+	background-color: white;
+	color: var(--background);
+}
+
+.btn-box .btn:nth-of-type(2):hover {
+	background-color: var(--background);
+	color: white;
+}
+
+/* ---- BARRE DE DÉFILEMENT ---- */
+::-webkit-scrollbar {
+	width: 10px;
+	background-color: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+	background: linear-gradient(
+		to bottom,
+		var(--primary-gradient-start),
+		var(--primary-gradient-end)
+	);
+	border-radius: 5px;
+}
+
+/* ---- SECTION À PROPOS ---- */
+#aPropos {
+	background-color: var(--second-background);
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 5em;
+}
+
+#aPropos img {
+	width: 30vw;
+	max-width: 350px;
+	border-radius: 1em;
+	object-fit: cover;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+	margin-top: 5em;
+	transition: filter 0.3s ease;
+}
+
+#aPropos img:hover {
+	filter: brightness(1.1);
+}
+
+.about-box {
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+	gap: 2em;
+	flex: 1;
+}
+
+.about-box h1 {
+	font-size: 5em;
+}
+
+.about-box p {
+	color: white;
+	opacity: 0.8;
+}
+
+/* ---- SECTION DES COMPÉTENCES ---- */
+/* Section générale des compétences */
+.skills-section {
+	margin-bottom: 2.5rem;
+}
+
+.skills-section h2 {
+	font-size: 2.2em;
+	margin-bottom: 1rem;
+}
+
+/* Conteneur de cartes de compétences */
+.skills-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+	gap: 1.5rem;
+	width: 100%;
+}
+
+/* Carte de compétence individuelle */
+.skill-card {
+	background: var(--card-bg);
+	border-radius: 10px;
+	padding: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease,
+		background 0.3s ease, border 0.3s ease;
+	border: 1px solid var(--card-border);
+	/* Animation d'apparition */
+	opacity: 0;
+	transform: translateY(20px);
+}
+
+.skill-card.visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.skill-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 10px 20px var(--card-hover-shadow);
+	background: linear-gradient(
+		135deg,
+		rgba(245, 166, 35, 0.1),
+		rgba(255, 111, 97, 0.1)
+	);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Icônes des cartes de compétences */
+.skill-card i {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+	background: linear-gradient(
+		to right,
+		var(--primary-gradient-start),
+		var(--primary-gradient-end)
+	);
+	background-clip: text;
+	-webkit-background-clip: text;
+	color: transparent;
+}
+
+.skill-card p {
+	font-size: 1rem;
+	font-weight: 500;
+	color: white;
+	margin: 0;
+	opacity: 1;
+}
+
+/* Style spécifique pour les cartes de langues */
+.language-card i {
+	font-size: 2.5rem;
+}
+
+/* Différentes couleurs de bordure selon la catégorie */
+.skills-section:nth-of-type(2) .skill-card {
+	border-left: 3px solid var(--frontend-accent);
+}
+
+.skills-section:nth-of-type(3) .skill-card {
+	border-left: 3px solid var(--backend-accent);
+}
+
+.skills-section:nth-of-type(4) .skill-card {
+	border-left: 3px solid var(--language-accent);
+}
+
+/* Masquer l'ancienne section des compétences */
+.skills {
+	display: none;
+}
+
+/* ---- SECTION PORTFOLIO ---- */
+#inFolio {
+	background-color: var(--background);
+	padding-top: 8em;
+}
+
+#inFolio p {
+	color: white;
+	opacity: 0.8;
+}
+
+/* Liens dans la section portfolio */
+#inFolio a {
+	border-image: linear-gradient(
+			to right,
+			var(--primary-gradient-start),
+			var(--primary-gradient-end)
+		)
+		30;
+	border-bottom: 2px solid;
+	transition: opacity 0.3s ease;
+}
+
+#inFolio a:hover {
+	opacity: 0.8;
+}
+
+#inFolio a:visited {
+	border-image: linear-gradient(
+			to right,
+			var(--primary-gradient-start),
+			var(--primary-gradient-end)
+		)
+		30;
+	border-bottom: 2px solid;
+}
+
+/* Titre du portfolio */
+.header {
+	text-align: center;
+	font-size: 5em;
+	margin: 0.5em 0;
+}
+
+/* Conteneur de projets */
+.projet-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 2em;
+}
+
+/* Boîte de projet individuelle */
+.box {
+	border: 3px solid rgb(49, 49, 49);
+	border-radius: 0.5em;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	overflow: hidden;
+	padding: 3em;
+	gap: 2em;
+	color: white;
+	cursor: pointer;
+	transition: opacity 0.6s ease, transform 0.6s ease, border 0.3s ease,
+		box-shadow 0.3s ease;
+	background-color: rgba(30, 30, 30, 0.5);
+	/* Animation d'apparition */
+	opacity: 0;
+	transform: translateY(20px);
+}
+
+.box.visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.box:hover {
+	border: 3px solid rgb(100, 100, 100);
+	transform: translateY(-5px);
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.box p {
+	opacity: 0.8;
+}
+
+.box h1 {
+	font-size: 2em;
+}
+
+/* Images des projets */
+.box img {
+	width: 100%;
+	border-radius: 0.5em;
+	object-fit: cover;
+	transition: transform 0.5s ease;
+}
+
+.box:hover img {
+	transform: scale(1.05);
+}
+
+/* ---- SECTION CONTACT ---- */
+#contact {
+	background-color: var(--second-background);
+	padding-top: 8em;
+}
+
+/* Formulaire de contact */
+form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 2em;
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+form .input-box {
+	display: flex;
+	flex-direction: column;
+	align-items: baseline;
+	gap: 1em;
+	width: 100%;
+}
+
+.input-box span {
+	font-size: 1.5em;
+}
+
+/* Champs de formulaire */
+form input,
+form textarea {
+	font-size: 1.3em;
+	padding: 1.2em;
+	border-radius: 0.5em;
+	border: none;
+	outline: none;
+	width: 100%;
+	background-color: rgba(255, 255, 255, 0.9);
+	transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+form input:focus,
+form textarea:focus {
+	background: rgb(255, 255, 255);
+	box-shadow: 0 0 10px rgba(245, 166, 35, 0.5);
+}
+
+form textarea {
+	min-height: 150px;
+	resize: vertical;
+}
+
+/* Bouton d'envoi du formulaire */
+form button {
+	padding: 0.8em 2em;
+	font-weight: 500;
+	letter-spacing: 1px;
+	border-radius: 0.5em;
+	font-size: 1.1em;
+	border: 2px solid white;
+	background: transparent;
+	color: white;
+	cursor: pointer;
+	transition: 0.3s ease-in-out;
+	position: relative;
+	overflow: hidden;
+}
+
+form button:hover {
+	background: linear-gradient(
+		to right,
+		var(--primary-gradient-start),
+		var(--primary-gradient-end)
+	);
+	border-color: transparent;
+	color: white;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Animation du bouton d'envoi */
+form button::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(
+		90deg,
+		transparent,
+		rgba(255, 255, 255, 0.2),
+		transparent
+	);
+	transition: left 0.7s ease;
+}
+
+form button:hover::before {
+	left: 100%;
+}
+
+/* ---- PIED DE PAGE ---- */
+footer {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	justify-content: space-between;
+	background-color: var(--background);
+	width: 100%;
+	padding: 5em 15% 3em;
+	position: relative;
+}
+
+/* Colonne gauche du footer */
+.col-left {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	margin-bottom: 2em;
+}
+
+.col-box {
+	display: flex;
+	align-items: center;
+	gap: 1em;
+}
+
+.col-box i {
+	font-size: 2em;
+}
+
+.col-box span {
+	font-size: 1.2em;
+}
+
+/* Liens dans le footer */
+.col-box span a {
+	text-decoration: none;
+	color: white;
+	transition: color 0.3s ease;
+	position: relative;
+	padding-bottom: 2px;
+	opacity: 0.9;
+}
+
+.col-box a:hover {
+	color: var(--primary-gradient-start);
+	opacity: 1;
+}
+
+.col-box span a:visited {
+	color: white;
+}
+
+/* Animation des liens au survol */
+.col-box a::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 0;
+	height: 1px;
+	background: linear-gradient(
+		to right,
+		var(--primary-gradient-start),
+		var(--primary-gradient-end)
+	);
+	transition: width 0.3s ease;
+}
+
+.col-box a:hover::after {
+	width: 100%;
+}
+
+/* Colonne droite du footer (icônes sociales) */
+.col-right {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	color: white;
+	max-width: 500px;
+	margin-bottom: 2em;
+}
+
+.col-right span {
+	font-size: 1.5em;
+}
+
+.col-right .social-icon {
+	display: flex;
+	align-items: baseline;
+	justify-content: left;
+	gap: 1em;
+}
+
+.col-right .social-icon span a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.col-right .social-icon span a:visited {
+	color: inherit;
+}
+
+.col-right .social-icon span i {
+	font-size: 2em;
+	transition: transform 0.3s ease, color 0.3s ease;
+	cursor: pointer;
+}
+
+/* Animation des icônes sociales */
+.social-icon i:hover {
+	color: var(--primary-gradient-start);
+	transform: translateY(-5px) scale(1.1);
+}
+
+/* Copyright */
+.copyright {
+	width: 100%;
+	text-align: center;
+	margin-top: 2em;
+	padding-top: 2em;
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.copyright p {
+	color: rgba(255, 255, 255, 0.7);
+	font-size: 0.9em;
+}
+
+/* ---- MEDIA QUERIES POUR LA RESPONSIVITÉ ---- */
+@media (max-width: 968px) {
+	/* Ajustements généraux */
+	section {
+		padding: 8em 10%;
+	}
+
+	/* Navigation mobile */
+	nav .btn {
+		display: none;
+	}
+
+	#menu {
+		display: block;
+	}
+
+	.links {
+		position: absolute;
+		top: 100%;
+		right: 0%;
+		width: 100%;
+		padding: 1em 3em;
+		color: white;
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+		background: rgba(0, 0, 0, 0.9);
+		display: none;
+	}
+
+	.links a {
+		margin: 2em 0;
+		display: block;
+		font-size: 1.5em;
+		color: white;
+	}
+
+	.links.active {
+		display: block;
+	}
+
+	/* Section Accueil */
+	#acceuil h1 {
+		font-size: 4em;
+	}
+
+	#acceuil h3 {
+		font-size: 2em;
+	}
+
+	#acceuil img {
+		width: 24vw;
+	}
+
+	/* Section À propos */
+	#aPropos {
+		flex-direction: column;
+	}
+
+	#aPropos img {
+		width: 50%;
+		margin: 0 auto;
+	}
+
+	#aPropos h1 {
+		font-size: 3em;
+	}
+
+	/* Section Compétences */
+	.skills-container {
+		grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+	}
+
+	.skill-card i {
+		font-size: 2.5rem;
+	}
+
+	.skills-section h2 {
+		font-size: 2em;
+	}
+}
+
+@media (max-width: 768px) {
+	/* Ajustements pour smartphones */
+	section {
+		padding: 7em 5%;
+	}
+
+	/* Section Accueil */
+	#acceuil h1 {
+		font-size: 2.5em;
+	}
+
+	#acceuil h3 {
+		font-size: 1.5em;
+	}
+
+	#acceuil img {
+		width: 32vw;
+	}
+
+	/* Section À propos */
+	.about-box h1 {
+		font-size: 2.5em;
+	}
+
+	/* Section Portfolio */
+	#inFolio .header {
+		font-size: 3em;
+	}
+
+	/* Section Contact */
+	#contact .header {
+		font-size: 3em;
+	}
+
+	#contact .input-box {
+		font-size: 1em;
+	}
+
+	.input-box input,
+	.input-box textarea {
+		padding: 0.8em;
+		font-size: 1.1em;
+	}
+
+	/* Section Compétences */
+	.skills-container {
+		grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+		gap: 1rem;
+	}
+
+	.skill-card {
+		padding: 1rem;
+	}
+
+	.skill-card i {
+		font-size: 2rem;
+	}
+
+	.skill-card p {
+		font-size: 0.9rem;
+	}
+
+	.skills-section h2 {
+		font-size: 1.8em;
+	}
+
+	/* Footer */
+	footer {
+		flex-direction: column;
+		gap: 3em;
+		align-items: flex-start;
+		padding: 3em 5%;
+	}
+
+	.col-box i {
+		font-size: 1.5em;
+	}
+
+	.col-box span {
+		font-size: 1em;
+	}
+
+	.social-icon i {
+		font-size: 1.8em;
+	}
+}

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<!-- Méta-informations de base -->
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="author" content="Raphael MARMOL" />
+		<meta
+			name="description"
+			content="Découvrez le portfolio de Raphaël Marmol, un développeur web passionné basé à Lille, prêt à relever de nouveaux défis." />
+
+		<!-- Méta-informations pour les réseaux sociaux (Open Graph) -->
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="Portfolio de MARMOL Raphael" />
+		<meta property="og:title" content="Portfolio de MARMOL Raphael" />
+		<meta
+			property="og:description"
+			content="Découvrez le portfolio de Raphaël Marmol, un développeur web passionné basé à Lille, prêt à relever de nouveaux défis." />
+		<meta
+			property="og:image"
+			content="https://saltyway12.github.io/Portfolio/Photo.webp" />
+		<meta property="og:url" content="https://saltyway12.github.io/Portfolio/" />
+
+		<!-- Titre de la page qui apparaît dans l'onglet du navigateur -->
+		<title>Portfolio de Raphael Marmol</title>
+
+		<!-- Liens vers les fichiers externes: CSS, icônes et JavaScript -->
+		<link rel="stylesheet" href="style.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap"
+			rel="stylesheet" />
+		<link
+			href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+			rel="stylesheet" />
+		<script src="script.js" defer></script>
+		<!-- L'attribut defer garantit que le script s'exécute après le chargement du HTML -->
+
+		<!-- Favicon (icône affichée dans l'onglet du navigateur) -->
+		<link rel="shortcut icon" href="images/Photo.ico" type="image/x-icon" />
+	</head>
+
+	<body>
+		<!-- BARRE DE NAVIGATION -->
+		<nav>
+			<!-- Logo (nom avec effet de dégradé) -->
+			<a href="#" class="logo"><span>Raphaël</span></a>
+
+			<!-- Menu de navigation principal -->
+			<ul class="links">
+				<li><a href="#acceuil" class="nav-link">Accueil</a></li>
+				<li><a href="#aPropos" class="nav-link">A propos</a></li>
+				<li><a href="#inFolio" class="nav-link">Portfolio</a></li>
+				<li><a href="#contact" class="nav-link">Contact</a></li>
+			</ul>
+
+			<!-- Icône de menu hamburger pour mobile (masquée sur desktop) -->
+			<i class="bx bx-menu-alt-right" id="menu"></i>
+
+			<!-- Bouton d'action principal -->
+			<a href="#contact" class="btn">Me contacter</a>
+		</nav>
+
+		<!-- SECTION ACCUEIL (PREMIÈRE SECTION VISIBLE) -->
+		<section id="acceuil">
+			<!-- Photo de profil -->
+			<img src="images/photo.jpg" alt="Photo de Raphaël Marmol" />
+
+			<!-- Présentation principale -->
+			<div class="info-box">
+				<h1><span>Bonjour, je suis Raphaël</span></h1>
+				<h3><span>Développeur Fullstack</span> basé à Lille</h3>
+				<p>
+					D'une curiosité et d'une soif d'apprentissage permanentes, je suis
+					toujours à l'affut de la moindre occasion d'acquérir et d'approfondir
+					mes compétences.
+				</p>
+				<p>
+					Etudiant de l'AFCI de Villeneuve d'Ascq, je suis actuellement à la
+					recherche d'un stage du 21 juillet au 10 octobre 2025.
+				</p>
+			</div>
+
+			<!-- Boutons d'action -->
+			<div class="btn-box">
+				<a href="#contact">
+					<div class="btn">Me contacter</div>
+				</a>
+
+				<a
+					href="asset/CV Marmol.pdf"
+					download="CV Marmol.pdf"
+					target="_blank"
+					rel="noopener noreferrer">
+					<div class="btn">Télécharger mon CV</div>
+				</a>
+
+				<!-- L'attribut download déclenche le téléchargement plutôt que l'ouverture dans le navigateur -->
+				<!-- rel="noopener noreferrer" améliore la sécurité pour les liens ouverts dans un nouvel onglet -->
+			</div>
+		</section>
+
+		<!-- SECTION À PROPOS -->
+		<section id="aPropos">
+			<div class="about-box">
+				<!-- Présentation personnelle -->
+				<div class="about-info">
+					<h1><span>A propos de moi</span></h1>
+					<p>
+						Après une première partie de vie professionnelle au service de mes
+						clients que cela soit dans le commerce ou en tant que
+						téléconseiller, j'ai fait le choix d'une reconversion
+						professionnelle pour réaliser mon rêve et faire de mes idées mon
+						métier.
+					</p>
+				</div>
+
+				<!-- SECTION COMPÉTENCES FRONTEND -->
+				<div class="skills-section">
+					<h2><span>Frontend</span></h2>
+					<div class="skills-container">
+						<!-- Carte HTML -->
+						<div class="skill-card">
+							<i class="bx bxl-html5"></i>
+							<!-- Icône HTML5 de Boxicons -->
+							<p>HTML</p>
+						</div>
+						<!-- Carte CSS -->
+						<div class="skill-card">
+							<i class="bx bxl-css3"></i>
+							<p>CSS</p>
+						</div>
+						<!-- Carte JavaScript -->
+						<div class="skill-card">
+							<i class="bx bxl-javascript"></i>
+							<p>JavaScript</p>
+						</div>
+						<!-- Carte SCSS -->
+						<div class="skill-card">
+							<i class="bx bxl-sass"></i>
+							<p>SCSS</p>
+						</div>
+						<!-- Carte React -->
+						<div class="skill-card">
+							<i class="bx bxl-react"></i>
+							<p>React</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- SECTION COMPÉTENCES BACKEND -->
+				<div class="skills-section">
+					<h2><span>Backend</span></h2>
+					<div class="skills-container">
+						<!-- Carte PHP -->
+						<div class="skill-card">
+							<i class="bx bxl-php"></i>
+							<p>PHP</p>
+						</div>
+						<!-- Carte SQL/NoSQL -->
+						<div class="skill-card">
+							<i class="bx bx-data"></i>
+							<p>SQL/NoSQL</p>
+						</div>
+						<!-- Carte Symfony -->
+						<div class="skill-card">
+							<i class="bx bxl-symfony"></i>
+							<p>Symfony</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- SECTION LANGUES -->
+				<div class="skills-section">
+					<h2><span>Langues</span></h2>
+					<div class="skills-container">
+						<!-- Carte Français -->
+						<div class="skill-card language-card">
+							<i class="bx bx-globe"></i>
+							<p>Français</p>
+						</div>
+						<!-- Carte Anglais -->
+						<div class="skill-card language-card">
+							<i class="bx bx-globe"></i>
+							<p>Anglais</p>
+						</div>
+						<!-- Carte Espagnol -->
+						<div class="skill-card language-card">
+							<i class="bx bx-globe"></i>
+							<p>Espagnol</p>
+						</div>
+						<!-- Carte Russe -->
+						<div class="skill-card language-card">
+							<i class="bx bx-globe"></i>
+							<p>Russe</p>
+						</div>
+						<!-- Carte Allemand -->
+						<div class="skill-card language-card">
+							<i class="bx bx-globe"></i>
+							<p>Allemand</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Photo de profil (répétée dans cette section) -->
+			<img src="images/photo.jpg" alt="Photo de Raphaël Marmol" />
+		</section>
+
+		<!-- SECTION PORTFOLIO -->
+		<section id="inFolio">
+			<h1 class="header"><span>Portfolio</span></h1>
+			<div class="projet-container">
+				<!-- PROJET 1: SHOP ELITE -->
+				<div class="box">
+					<h1>
+						<a
+							href="https://saltyway12.github.io/shop-elite/#accueil"
+							target="_blank"
+							><span>Shop Elite</span></a
+						>
+					</h1>
+					<p>
+						Ce projet demandait pour la validation du module front de notre
+						formation Developpeur Web/ Web Mobile de créer un site e-commerce en
+						nous servant de l'api https://fakestoreapi.com/ . <br />
+						Vous pourrez retrouver le code et le readme du projet
+						<a href="https://github.com/Saltyway12/shop-elite" target="_blank"
+							>ici</a
+						>
+					</p>
+					<img
+						src="images/captureShop.PNG"
+						alt="Capture d'écran du projet Shop Elite" />
+				</div>
+
+				<!-- PROJET 2: PROGRAMMATION ORIENTÉE OBJET -->
+				<div class="box">
+					<h1>
+						<a href="https://saltyway12.github.io/exercicePOO/" target="_blank"
+							><span> P.O.O (Programmation Orientée Objet) </span></a
+						>
+					</h1>
+					<p>
+						Afin de bien comprendre la P.O.O, j'ai du au cours de cet exercice
+						recréer en objet trois anciens exercices, le juste prix, un slider
+						et une apli web paint. Je me suis servi de boostrap pour styliser
+						très légèrement le html, l'essentiel de l'exercice est dans le Java
+						Script et ce qu'il génère à sélection de l'appli
+					</p>
+					<img
+						src="images/capturePOO.PNG"
+						alt="Capture d'écran du projet POO" />
+				</div>
+
+				<!-- PROJET 3: PLACEHOLDER -->
+				<div class="box">
+					<h1>
+						<a href="https://saltyway12.github.io/Pendu/" target="_blank">
+							<span>Le Jeu du Pendu</span>
+						</a>
+					</h1>
+					<p>
+						Le jeu du pendu, en HTML CSS et JavaScript, réalisé avec un JSON
+						fourni.<br />
+						La principale difficulté était dans le script et la gestion des
+						caractères spéciaux.
+					</p>
+					<img src="images/capturePendu.PNG" alt="capturePendu" />
+				</div>
+			</div>
+		</section>
+
+		<!-- SECTION CONTACT -->
+		<section id="contact">
+			<h1 class="header"><span>Contact</span></h1>
+
+			<!-- Formulaire de contact utilisant web3forms pour le traitement -->
+			<form
+				action="https://api.web3forms.com/submit"
+				method="POST"
+				id="contact-form">
+				<!-- Clé d'accès pour le service web3forms -->
+				<input
+					type="hidden"
+					name="access_key"
+					value="a9fa7f02-d2df-487c-99d1-44eb25d9fa37" />
+
+				<!-- Champ nom -->
+				<div class="input-box">
+					<span>Nom</span>
+					<input
+						type="text"
+						name="nom"
+						placeholder="Entrez votre nom"
+						required />
+				</div>
+
+				<!-- Champ email -->
+				<div class="input-box">
+					<span>E-mail</span>
+					<input
+						type="email"
+						name="email"
+						placeholder="Entrez votre e-mail"
+						required />
+				</div>
+
+				<!-- Champ message -->
+				<div class="input-box">
+					<span>Votre message</span>
+					<textarea
+						name="message"
+						placeholder="Entrez votre message"
+						required></textarea>
+				</div>
+
+				<!-- Vérification anti-spam (masquée) -->
+				<input type="checkbox" name="botcheck" id="" style="display: none" />
+
+				<!-- Bouton d'envoi -->
+				<button type="submit">Envoyer</button>
+			</form>
+		</section>
+
+		<!-- PIED DE PAGE (FOOTER) -->
+		<footer>
+			<!-- Colonne gauche: informations de contact -->
+			<div class="col-left">
+				<!-- Numéro de téléphone -->
+				<div class="col-box">
+					<span><i class="bx bxs-phone"></i></span>
+					<span
+						><a href="tel:+33666483173" title="téléphone"
+							>06.66.48.31.73</a
+						></span
+					>
+				</div>
+
+				<!-- Adresse email -->
+				<div class="col-box">
+					<span><i class="bx bxl-gmail"></i></span>
+					<span
+						><a
+							href="mailto:raphael.marmol.vdb@gmail.com"
+							target="_blank"
+							rel="noopener noreferrer"
+							title="mail"
+							>raphael.marmol.vdb@gmail.com</a
+						></span
+					>
+				</div>
+			</div>
+
+			<!-- Colonne droite: liens vers les réseaux sociaux -->
+			<div class="col-right">
+				<div class="social-icon">
+					<!-- Lien LinkedIn -->
+					<span
+						><a
+							href="https://www.linkedin.com/in/raphael-marmol-0aa9ba23b"
+							target="_blank"
+							rel="noopener noreferrer"
+							title="linkedin"
+							><i class="bx bxl-linkedin"></i></a
+					></span>
+
+					<!-- Lien GitHub -->
+					<span
+						><a
+							href="https://github.com/Saltyway12"
+							target="_blank"
+							rel="noopener noreferrer"
+							title="github"
+							><i class="bx bxl-github"></i></a
+					></span>
+				</div>
+			</div>
+
+			<!-- Copyright -->
+			<div class="copyright">
+				<p>
+					&copy; <span id="year"></span> Raphaël Marmol. Tous droits réservés.
+				</p>
+			</div>
+		</footer>
+	</body>
+</html>
